@@ -1,0 +1,58 @@
+<!---
+1. Textmanipulation: Lass den Benutzer zwei Texte eingeben und zeige die kombinierten Texte an, die Länge jedes Textes, oder ob sie gleich sind.
+2. Zahlenberechnung: Lass den Benutzer zwei Zahlen eingeben und zeige die Summe, Differenz, das Produkt und den Quotienten der beiden Zahlen an.
+3. Benutzerinteraktion: Füge dem Formular ein Dropdown-Menü hinzu, in dem der Benutzer eine Aktion auswählen kann (z.B. "Addieren", "Subtrahieren", "Konkatenieren" usw.), und basierend auf dieser Auswahl führe die entsprechende Operation mit den eingegebenen Werten aus.
+4. Fortgeschrittene Validierung: Implementiere eine Validierung, die sicherstellt, dass die eingegebenen Werte bestimmten Kriterien entsprechen (z.B. dass eine E-Mail-Adresse im richtigen Format eingegeben wurde).
+-->
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formular</title>
+    <style>
+      /* Hier können bei Bedarf CSS-Stile hinzugefügt werden */
+    </style>
+  </head>
+  <body>
+    <h1>Formular</h1>
+    <form>
+      <label for="input1">Text 1:</label>
+      <input type="text" id="input1" name="input1" /><br /><br />
+      <label for="input2">Text 2:</label>
+      <input type="text" id="input2" name="input2" /><br /><br />
+      <button type="button" onclick="handleButtonClick()">Go</button>
+    </form>
+
+    <!-- Ergebnisbereich -->
+    <div id="result"></div>
+
+    <script>
+      function handleButtonClick() {
+        // Werte aus den Eingabefeldern abrufen
+        const { input1Value, input2Value } = getInputValues();
+
+        // Ergebnis berechnen
+        const result = calculateResult(input1Value, input2Value);
+
+        // Ergebnis im HTML anzeigen
+        displayResult(result);
+      }
+
+      function getInputValues() {
+        const input1Value = document.getElementById('input1').value;
+        const input2Value = document.getElementById('input2').value;
+        return { input1Value, input2Value };
+      }
+
+      function calculateResult(input1Value, input2Value) {
+        return input1Value + ' ' + input2Value;
+      }
+
+      function displayResult(result) {
+        document.getElementById('result').innerHTML = 'Ergebnis: ' + result;
+      }
+    </script>
+  </body>
+</html>
